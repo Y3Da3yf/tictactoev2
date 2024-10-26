@@ -7,6 +7,7 @@ public class ClassicHuman {
     private int round = 0;
     private int Xscore = 0;
     private int Oscore = 0;
+    private int Drowscore = 0;
 
 
     private boolean XorO;
@@ -27,6 +28,7 @@ public class ClassicHuman {
         System.out.println("-----| MAP |-----");
         System.out.println("Round: " + round);
         System.out.println("   | 1 | 2 | 3 |");
+        System.out.println("   -------------");
 
         for(int i = 0; i < 3; i++){
             System.out.print("|" + (i+1) + "|  ");
@@ -54,13 +56,35 @@ public class ClassicHuman {
 
 
             
-            if(XorO){map[y][x] = "X";
-                    XorO = false;}
-            else{map[y][x] = "O";
-                    XorO = true;}
-            round++;
+            if(XorO){
+                if(map[y][x] == null){
+                    map[y][x] = "X";
+                    XorO = false;
+                    round++;
+                    showMap();
+
+                }
+                else{
+                    System.out.println("X: " + x + y +  " is full");
+                }
+            }
+
+
+
+            else{
+                if(map[y][x] == null){
+                    map[y][x] = "O";
+                    XorO = true;
+                    round++;
+                    showMap();
+
+                }
+                else{
+                    System.out.println("O: " + x + y +  " is full");
+                }
+            }
             
-            showMap();
+            
 
 
 
@@ -75,7 +99,15 @@ public class ClassicHuman {
                 }                                                           //CHECK IF BOARD IS FULL OR NOT
             }                                                               //CHECK IF BOARD IS FULL OR NOT
             if(totalFilledElement == 9){                                    //CHECK IF BOARD IS FULL OR NOT
-                System.out.println("Board is full. Game is Draw!");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("-----| Board is full. Game is Draw! |-----");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                
+                Drowscore++;
                 boardFull = true;
                 break;
             }
