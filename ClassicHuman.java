@@ -5,8 +5,13 @@ import java.util.Scanner;
 public class ClassicHuman {
     
     private int round = 0;
+    private int Xscore = 0;
+    private int Oscore = 0;
+
 
     private boolean XorO;
+    private boolean boardFull = false;
+
 
     private String[][] map = new String[3][3];
 
@@ -28,7 +33,7 @@ public class ClassicHuman {
 
             for(int j = 0; j < 3; j++){
                 if(map[i][j] == null){System.out.print("  | ");}
-                else{ System.out.print(map[i][j] + "  |  ");}
+                else{ System.out.print(map[i][j] + " | ");}
                
             }
             System.out.println("");
@@ -39,23 +44,61 @@ public class ClassicHuman {
 
     }
 
-    private void makeChangesOnMap(){
-        Scanner scanner = new Scanner(System.in);
+    private void makeChangesOnMap(Scanner scanner){
 
-        System.out.print("Enter row number: ");
-        int x = scanner.nextInt() - 1;
-        System.out.print("Enter row number: ");
-        int y = scanner.nextInt() - 1;
+        while(true){
+            System.out.print("Enter row number: ");
+            int x = scanner.nextInt() - 1;
+            System.out.print("Enter row number: ");
+            int y = scanner.nextInt() - 1;
 
 
-        
-        if(XorO){map[x][y] = "X";
-                XorO = false;}
-        else{map[x][y] = "O";
-                XorO = true;}
-        round++;
-        
-        showMap();
+            
+            if(XorO){map[y][x] = "X";
+                    XorO = false;}
+            else{map[y][x] = "O";
+                    XorO = true;}
+            round++;
+            
+            showMap();
+
+
+
+
+
+
+
+            int totalFilledElement = 0;             
+            for(int a = 0; a < 3 ; a++){
+                for(int b = 0; b < 3; b++){                                 //CHECK IF BOARD IS FULL OR NOT
+                    if(map[a][b] != null){totalFilledElement++;}            //CHECK IF BOARD IS FULL OR NOT
+                }                                                           //CHECK IF BOARD IS FULL OR NOT
+            }                                                               //CHECK IF BOARD IS FULL OR NOT
+            if(totalFilledElement == 9){                                    //CHECK IF BOARD IS FULL OR NOT
+                System.out.println("Board is full. Game is Draw!");
+                boardFull = true;
+                break;
+            }
+
+
+
+
+
+            CheckerHuman checker = new CheckerHuman(map);
+
+            if(checker.check(x, y) == 1){
+                System.out.println("-----|  X won!!!  |-----");             //CHECKERS FOR   ROW COLM AND CROSS
+                Xscore++;                                                     //CHECKERS FOR   ROW COLM AND CROSS
+                break;                                                        //CHECKERS FOR   ROW COLM AND CROSS
+            }                                                                 //CHECKERS FOR   ROW COLM AND CROSS
+            else if(checker.check(x, y) == 2){                                //CHECKERS FOR   ROW COLM AND CROSS
+                System.out.println("-----|  O won!!!  |-----");             //CHECKERS FOR   ROW COLM AND CROSS
+                Oscore++;
+                break;
+            }
+
+
+        }
         
     }
 
@@ -67,11 +110,15 @@ public class ClassicHuman {
 
 
     public void game(boolean XorO) {
+
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("game inside ClassicHuman");
         System.out.println("boolean XorO: " + XorO);
         this.XorO = XorO;
 
         showMap();
+        makeChangesOnMap(scanner);
 
         
 

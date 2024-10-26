@@ -56,7 +56,6 @@ public class Classic {
 
         if(scanner.nextInt() == 1){humanOrPc = true;}
         else{humanOrPc = false;}
-        scanner.close();
 
         if(humanOrPc){HumanVsHuman();}
         else{HumanVsComputer();}
