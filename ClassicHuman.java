@@ -2,22 +2,37 @@
 import java.util.Scanner;
 
 
+enum CellState {
+    EMPTY, // Cell is empty
+    X,     // Cell has an X
+    O      // Cell has an O
+};
+
+
+
+
 public class ClassicHuman {
     
     private int round = 0;
     private int Xscore = 0;
     private int Oscore = 0;
-    private int Drowscore = 0;
+    private int Drawscore = 0;
 
 
     private boolean XorO;
     private boolean boardFull = false;
 
 
-    private String[][] map = new String[3][3];
+    private CellState[][] map;
 
-
-
+    public ClassicHuman() {
+        map = new CellState[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                map[i][j] = CellState.EMPTY;
+            }
+        }
+    }
 
 
     private void showMap(){
@@ -34,7 +49,7 @@ public class ClassicHuman {
             System.out.print("|" + (i+1) + "|  ");
 
             for(int j = 0; j < 3; j++){
-                if(map[i][j] == null){System.out.print("  | ");}
+                if(map[i][j] == CellState.EMPTY){System.out.print("  | ");}
                 else{ System.out.print(map[i][j] + " | ");}
                
             }
@@ -57,8 +72,8 @@ public class ClassicHuman {
 
             
             if(XorO){
-                if(map[y][x] == null){
-                    map[y][x] = "X";
+                if(map[y][x] == CellState.EMPTY){
+                    map[y][x] = CellState.X;
                     XorO = false;
                     round++;
                     showMap();
@@ -72,8 +87,8 @@ public class ClassicHuman {
 
 
             else{
-                if(map[y][x] == null){
-                    map[y][x] = "O";
+                if(map[y][x] == CellState.EMPTY){
+                    map[y][x] = CellState.O;
                     XorO = true;
                     round++;
                     showMap();
@@ -95,7 +110,7 @@ public class ClassicHuman {
             int totalFilledElement = 0;             
             for(int a = 0; a < 3 ; a++){
                 for(int b = 0; b < 3; b++){                                 //CHECK IF BOARD IS FULL OR NOT
-                    if(map[a][b] != null){totalFilledElement++;}            //CHECK IF BOARD IS FULL OR NOT
+                    if(map[a][b] != CellState.EMPTY){totalFilledElement++;}            //CHECK IF BOARD IS FULL OR NOT
                 }                                                           //CHECK IF BOARD IS FULL OR NOT
             }                                                               //CHECK IF BOARD IS FULL OR NOT
             if(totalFilledElement == 9){                                    //CHECK IF BOARD IS FULL OR NOT
@@ -107,7 +122,7 @@ public class ClassicHuman {
                 System.out.println("");
                 System.out.println("");
                 
-                Drowscore++;
+                Drawscore++;
                 boardFull = true;
                 break;
             }
