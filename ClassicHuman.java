@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 
 enum CellState {
-    EMPTY, // Cell is empty
-    X,     // Cell has an X
-    O      // Cell has an O
+    EMPTY, 
+    X,     
+    O     
 };
 
 

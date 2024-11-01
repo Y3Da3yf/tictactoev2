@@ -76,9 +76,43 @@ public class Main {
             }
             if(sellect == 2){
 
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("-----| Sellect X or O to Begin With! |-----");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+                System.out.println("");
+
+
+
+
+                XorO = scanner2.nextLine();
+
+                if ("X".equals(XorO) || "x".equals(XorO)) {
+                    Tictactoe3D4by4 d3 = new Tictactoe3D4by4(true);
+                    d3.game();
+                } else if ("O".equals(XorO) || "o".equals(XorO)) {
+                    Tictactoe3D4by4 d3 = new Tictactoe3D4by4(false);
+                    d3.game();
+                } else {
+                    System.out.println("Invalid input. Please enter X or O.");
+                }
+
+
                 break;
             }
-            if(sellect == 3){}
+            if(sellect == 3){
+                
+            }
             if(sellect == 4){break;}
         }
 
