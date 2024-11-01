@@ -10,6 +10,7 @@ public class Main {
         String humanOrPc = "Human";
 
 
+        boolean HorizontalOrVertical = false;   // false is horizontal true is vertical
 
 
         while(true){
@@ -99,10 +100,10 @@ public class Main {
 
                 if ("X".equals(XorO) || "x".equals(XorO)) {
                     Tictactoe3D4by4 d3 = new Tictactoe3D4by4(true);
-                    d3.game();
+                    d3.game(HorizontalOrVertical);
                 } else if ("O".equals(XorO) || "o".equals(XorO)) {
                     Tictactoe3D4by4 d3 = new Tictactoe3D4by4(false);
-                    d3.game();
+                    d3.game(HorizontalOrVertical);
                 } else {
                     System.out.println("Invalid input. Please enter X or O.");
                 }
@@ -111,7 +112,14 @@ public class Main {
                 break;
             }
             if(sellect == 3){
+                String horizontalcheck;
                 
+                System.out.println("-----| Set 3D gameplay |-----");
+                System.out.print("Type 1 for Horizontal 3D gameplay, Type 2 for Vertical 3D gameplay: ");
+                horizontalcheck = scanner2.nextLine();
+
+                if("1".equals(horizontalcheck)){HorizontalOrVertical = false;}
+                else if("2".equals(horizontalcheck)){HorizontalOrVertical = true;}
             }
             if(sellect == 4){break;}
         }

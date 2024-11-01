@@ -19,7 +19,7 @@ public class Tictactoe3D4by4Human {
     private int Oscore = 0;
     private int Drawscore = 0;
 
-
+    private boolean HorizontalOrVertical;
     private boolean XorO;
     private boolean boardFull = false;
 
@@ -28,8 +28,9 @@ public class Tictactoe3D4by4Human {
 
 
 
-    public Tictactoe3D4by4Human() {
+    public Tictactoe3D4by4Human(boolean HorizontalOrVertical) {
 
+        this.HorizontalOrVertical = HorizontalOrVertical;
 
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
@@ -39,14 +40,14 @@ public class Tictactoe3D4by4Human {
             }
         }
 
-
+        
 
     }
     
     CheckerTictactoe3D4by4 checker = new CheckerTictactoe3D4by4(map);
 
 
-    private void showMap(){
+    private void showMapHorizontal(){
 
 
 
@@ -99,6 +100,99 @@ public class Tictactoe3D4by4Human {
         
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    private void showMapVertical(){
+
+        for(int y = 0; y < 4; y++){
+
+            for(int x = 0; x < 4; x++){
+
+                for(int z = 0; z < 4; z++){
+                    
+                    if(z == 0 && x == 0){
+                        System.out.println("           Z=" + y);
+                        System.out.println("   X= 1   2   3   4");
+                        System.out.println("    -----------------  ");
+                    }
+
+
+                    if(map[y][x][z] == CellState.EMPTY){
+                        if(z == 0){
+                            System.out.print("Y= " + (y+1) + "| " + " " + " | ");    //  x + " " +y + " "  + z +
+                        }
+                        else{
+                            System.out.print( " " + " | ");                  // x + " " +y + " "  + z +
+                        }
+                    }
+                    else if(map[y][x][z] != CellState.EMPTY){
+                        
+                        if(z == 0){
+                            System.out.print("Y= "+(y+1) + "| " + map[y][x][z] + " | ");    //  x + " " +y + " "  + z +
+                        }
+                        else{
+                            System.out.print(map[y][x][z] + " | ");                  // x + " " +y + " "  + z +
+                        }
+                    }
+                }
+
+                System.out.println("");
+                System.out.println("    -----------------  ");
+
+            }
+            System.out.println("");
+            System.out.println("");
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private boolean putX(Scanner scanner){
@@ -162,17 +256,20 @@ public class Tictactoe3D4by4Human {
         Scanner scanner = new Scanner(System.in);
 
 
-        showMap();
+        if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
+        if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
 
         while (true) {
             
             putX(scanner);
-            showMap();
+            if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
+            if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
             if(checker.check(map) != 0){break;}
             
 
             putO(scanner);
-            showMap();
+            if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
+            if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
             if(checker.check(map) != 0){break;}
 
 

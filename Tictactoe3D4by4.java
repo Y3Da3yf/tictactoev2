@@ -48,8 +48,8 @@ public class Tictactoe3D4by4 {
 
 
 
-    public void HumanVsHuman(){
-        Tictactoe3D4by4Human humanvshuman = new Tictactoe3D4by4Human();
+    public void HumanVsHuman(boolean HorizontalOrVertical){
+        Tictactoe3D4by4Human humanvshuman = new Tictactoe3D4by4Human(HorizontalOrVertical);
 
         humanvshuman.game(XorO);
     }
@@ -61,7 +61,7 @@ public class Tictactoe3D4by4 {
 
 
 
-    public void game(){
+    public void game(boolean HorizontalOrVertical){
 
         System.out.println("-----| Welcome to 4x4x4 3D TicTacToe Game!! |-----");
         System.out.println("");
@@ -80,7 +80,7 @@ public class Tictactoe3D4by4 {
         if(scanner.nextInt() == 1){humanOrPc = true;}
         else{humanOrPc = false;}
 
-        if(humanOrPc){HumanVsHuman();}
+        if(humanOrPc){HumanVsHuman(HorizontalOrVertical);}
         else{HumanVsComputer();}
 
 
