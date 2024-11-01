@@ -54,8 +54,10 @@ public class Tictactoe3D4by4 {
         humanvshuman.game(XorO);
     }
 
-    public void HumanVsComputer(){
-        
+    public void HumanVsComputer(boolean HorizontalOrVertical){
+        Tictactoe3D4by4Computer humanvsComputer = new Tictactoe3D4by4Computer(HorizontalOrVertical);
+
+        humanvsComputer.game(XorO);
     }
 
 
@@ -81,7 +83,7 @@ public class Tictactoe3D4by4 {
         else{humanOrPc = false;}
 
         if(humanOrPc){HumanVsHuman(HorizontalOrVertical);}
-        else{HumanVsComputer();}
+        else{HumanVsComputer(HorizontalOrVertical);}
 
 
 
