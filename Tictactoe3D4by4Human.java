@@ -203,18 +203,31 @@ public class Tictactoe3D4by4Human {
         int z;
         System.out.println("-----| X'S TURN |-----");
 
-        System.out.print("Coordinate on X: ");
-        x = scanner.nextInt();
-        System.out.println("");
-        System.out.print("Coordinate on Y: ");
-        y = scanner.nextInt();
-        System.out.println("");
-        System.out.print("Coordinate on Z: ");
-        z = scanner.nextInt();
-        System.out.println("");
+        while (true) { 
+            System.out.print("Coordinate on X: ");
+            x = scanner.nextInt();
+            System.out.println("");
+            System.out.print("Coordinate on Y: ");
+            y = scanner.nextInt();
+            System.out.println("");
+            System.out.print("Coordinate on Z: ");
+            z = scanner.nextInt();
+            System.out.println("");
 
 
-        map[y -1][z -1][x -1] = CellState.X;
+            if(map[y -1][z -1][x -1] == CellState.EMPTY){
+                map[y -1][z -1][x -1] = CellState.X;
+                break;
+            }
+            else{
+                System.out.println("!!Allready filled!!");
+            }
+
+        }
+ 
+
+
+
 
         checker.setXYZ(y-1, z-1, x-1);
 
@@ -227,20 +240,30 @@ public class Tictactoe3D4by4Human {
         int x;
         int y;
         int z;
-        System.out.println("-----| O'S TURN |-----");
 
-        System.out.print("Coordinate on X: ");
-        x = scanner.nextInt();
-        System.out.println("");
-        System.out.print("Coordinate on Y: ");
-        y = scanner.nextInt();
-        System.out.println("");
-        System.out.print("Coordinate on Z: ");
-        z = scanner.nextInt();
-        System.out.println("");
+        while (true) { 
+            System.out.println("-----| O'S TURN |-----");
+
+            System.out.print("Coordinate on X: ");
+            x = scanner.nextInt();
+            System.out.println("");
+            System.out.print("Coordinate on Y: ");
+            y = scanner.nextInt();
+            System.out.println("");
+            System.out.print("Coordinate on Z: ");
+            z = scanner.nextInt();
+            System.out.println("");
 
 
-        map[y -1][z -1][x -1] = CellState.O;
+            if(map[y -1][z -1][x -1] == CellState.EMPTY){
+                map[y -1][z -1][x -1] = CellState.O;
+                break;
+            }
+            else{
+                System.out.println("!!Allready filled!!");
+            }
+        }
+        
 
         checker.setXYZ(y-1, z-1, x-1);
 
@@ -259,19 +282,34 @@ public class Tictactoe3D4by4Human {
         if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
         if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
 
-        while (true) {
-            
+
+        if(XorO){
             putX(scanner);
             if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
             if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
-            if(checker.check(map) != 0){break;}
+        }
+
+
+
+        while (true) {
             
+
+
+
+
+
 
             putO(scanner);
             if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
             if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
             if(checker.check(map) != 0){break;}
 
+
+            putX(scanner);
+            if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
+            if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
+            if(checker.check(map) != 0){break;}
+            
 
         }
 
