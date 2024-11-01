@@ -168,19 +168,37 @@ public class Tictactoe3D4by4Human {
             
             putX(scanner);
             showMap();
-            checker.check(map);
+            if(checker.check(map) != 0){break;}
             
 
             putO(scanner);
             showMap();
-            checker.check(map);
+            if(checker.check(map) != 0){break;}
 
 
         }
 
 
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
 
-        
+        if(checker.check(map) == 1){System.out.println("-------| X WIN |-------");}
+        if(checker.check(map) == 2){System.out.println("-------| O WIN |-------");}
+
+        System.out.println(checker.check(map));
+
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+
+
     }
 
 
