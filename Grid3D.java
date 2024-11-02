@@ -13,20 +13,17 @@ public class Grid3D {
         }
 
         // Step 3: Display the 3D grid layer by layer
-        // for (int x = 0; x < 4; x++) {
-        //     System.out.println("Layer " + (x + 1) + ":");
-        //     for (int y = 0; y < 4; y++) {
-        //         for (int z = 0; z < 4; z++) {
-        //             System.out.print(grid[x][y][z] + "\t");
-        //         }
-        //         System.out.println();
-        //     }
-        //     System.out.println(); // Blank line between layers
-        // }
-        
-        for(int i = 0; i < 4; i++){
-            System.out.println(grid[0][i][0]);
+        for (int x = 0; x < 4; x++) {
+            System.out.println("Layer " + (x + 1) + ":");
+            for (int y = 0; y < 4; y++) {
+                for (int z = 0; z < 4; z++) {
+                    System.out.print(grid[x][y][z] + "\t");
+                }
+                System.out.println();
+            }
+            System.out.println(); // Blank line between layers
         }
+        
 
     }
 }

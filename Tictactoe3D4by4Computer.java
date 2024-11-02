@@ -283,9 +283,14 @@ public class Tictactoe3D4by4Computer {
 
             int randomInt = random.nextInt(size);
 
+            //position of random element will be calculate as       (z-1)*16 + (y-1)*4 + (x-1)
+            //so we can devide randomInt to 16 and we will devide remained part to 4 then we can find x,y,z axis
             
-
-
+            int remain16 = randomInt%16;
+            int z  = (randomInt - remain16)/16;
+            int remain4 = remain16 % 4;
+            int y = (remain16 - remain4)/4;
+            int x = remain4;
 
         }
 
