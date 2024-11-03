@@ -66,7 +66,7 @@ public class ClassicHuman {
         while(true){
             System.out.print("Enter row number: ");
             int x = scanner.nextInt() - 1;
-            System.out.print("Enter row number: ");
+            System.out.print("Enter colmn number: ");
             int y = scanner.nextInt() - 1;
 
 
@@ -160,8 +160,6 @@ public class ClassicHuman {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("game inside ClassicHuman");
-        System.out.println("boolean XorO: " + XorO);
         this.XorO = XorO;
 
         showMap();
