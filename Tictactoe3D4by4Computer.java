@@ -293,7 +293,6 @@ public class Tictactoe3D4by4Computer {
             int y = (remain16 - remain4)/4;
             int x = remain4;
 
-            System.out.println(randomInt);
 
             if(map[z][y][x] == CellState.EMPTY){
                 if(!XorO){           //if user is X computer will put O
@@ -307,9 +306,10 @@ public class Tictactoe3D4by4Computer {
                 }
             }
 
+            checker.setXYZ(y, z, x);
+
 
         }
-
 
 
 

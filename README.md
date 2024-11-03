@@ -1,13 +1,16 @@
 ﻿# tictactoev2
 
-Everything looks fine putting comments rn.
 
 
+Hello Professor,
 
-Hello dear proffessor,
-In this project I tried to make Normal TicTacToe and 4x4x4 3D TicTacToe games.
+In this project, I developed both a classic TicTacToe game and a 4x4x4 3D TicTacToe game. I hope you find my work enjoyable.
 
-My project files and their reasons:
+Best regards,
+Yusuf Aslan 230201001 Computer Engineering
+
+
+My project files and their explanations:
 
     -Main.java:  
         For creating Start Screen, we can choose which gamemode we will play and also we can use settings button. Extra Computer will ask for X or O after choosing gamemode then program wil hold this information in its memory then will use it in future.
@@ -57,7 +60,7 @@ My project files and their reasons:
                         Constructers will help me to run code with saving some variables(map, x, y) or without saving them.
                     
                     b. CheckRow(int x, int y):
-                        This method will take X and Y coordinates of cell and then it will check all rows if is there any win situation or not.
+                        This method will take X and Y coordinates of cell and then it will check all row if is there any win situation or not.
                         If yes it will check who win:
                             If O win method will return 1, if O win method will return 2.
 
@@ -122,16 +125,111 @@ My project files and their reasons:
 
                     d. putX(Scanner scanner):
                         This method will let user put 'X' in empty cells on map. When method run it will ask for x, y and z coordinates of cell you want to fill with then if cell is empty method will put 'X' in this space.
-                        In the end it will run checker.setXYZ(y-1,z-1,x-1) method from CheckerTictactoe3D4by4.java to set x, y and z coordinates.
+                        In the end it will run checker.setXYZ(y-1,z-1,x-1) method from CheckerTictactoe3D4by4Computer.java to set x, y and z coordinates.
 
                     e. putO(Scanner scanner):
                         This method will let user put 'O' in empty cells on map. When method run it will ask for x, y and z coordinates of cell you want to fill with then if cell is empty method will put 'O' in this space.
-                        In the end it will run checker.setXYZ(y-1,z-1,x-1) method from CheckerTictactoe3D4by4.java to set x, y and z coordinates.
+                        In the end it will run checker.setXYZ(y-1,z-1,x-1) method from CheckerTictactoe3D4by4Computer.java to set x, y and z coordinates.
 
                     f.putRandom(Scanner scanner, boolean XorO): 
-                        This method will put random 
+                        This method will put X or O to random Cell on map. When method run it will sellect random number between 0 to 63 and will check if this cell is, if yes it will put X or O in that cell if not it will take another random cell.  In the end it will run checker.setXYZ(y,z,x) method from CheckerTictactoe3D4by4Computer.java to set x, y and z coordinates.
 
                     g. game(boolean XorO):
                         This method will run all other methods in one place and it will use checker.check(map) to check is there any win situation. 
 
+                C. CheckerTictactoe3D4by4.java:
+                    This class has a constructer and 9 methods:
 
+                    a. Constructer:
+                        Constructer will save map variable to inside of CheckerTictactoe3D4by4 class.
+                    
+                    b. setXYZ(int x, int y, int z):
+                        This method will set x, y and z coordinates in class variable.
+
+                    c. rowChecker():
+                        This method will take X, Y and Z coordinates of cell and then it will check all row if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    d. colmChecker():
+                        This method will take X, Y and Z coordinates of cell and then it will check all column if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    e. deepChecker();
+                        This method will take X, Y and Z coordinates of cell and then it will check third axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    f. crossXCheck();
+                        This method will take X, Y and Z coordinates of cell and then it will check cross at special X axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+                 
+                    g. crossYCheck();
+                        This method will take X, Y and Z coordinates of cell and then it will check cross at special Y axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+                 
+                    h. crossZCheck();
+                        This method will take X, Y and Z coordinates of cell and then it will check cross at special Z axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    i. cross3dCheck():
+                        This method will take X, Y and Z coordinates of cell and then it will check in third dimension if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.            
+
+                    j. check(Tictactoe3D4by4Human.CellState[][][] map):
+                        This method will take Tictactoe3D4by4Human.CellState[][][] map as variable and use all check methods in one place, then returns if X wins, O wins or nobody wins.
+
+
+                D. CheckerTictactoe3D4by4Computer.java:  ( same with CheckerTictactoe3D4by4.java )
+                    This class has a constructer and 9 methods:
+
+                    a. Constructer:
+                        Constructer will save map variable to inside of CheckerTictactoe3D4by4 class.
+                    
+                    b. setXYZ(int x, int y, int z):
+                        This method will set x, y and z coordinates in class variable.
+
+                    c. rowChecker():
+                        This method will take X, Y and Z coordinates of cell and then it will check all row if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    d. colmChecker():
+                        This method will take X, Y and Z coordinates of cell and then it will check all column if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    e. deepChecker();
+                        This method will take X, Y and Z coordinates of cell and then it will check third axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    f. crossXCheck();
+                        This method will take X, Y and Z coordinates of cell and then it will check cross at special X axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+                 
+                    g. crossYCheck();
+                        This method will take X, Y and Z coordinates of cell and then it will check cross at special Y axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+                 
+                    h. crossZCheck();
+                        This method will take X, Y and Z coordinates of cell and then it will check cross at special Z axis if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.
+
+                    i. cross3dCheck():
+                        This method will take X, Y and Z coordinates of cell and then it will check in third dimension if is there any win situation or not.
+                        If yes it will check who win:
+                        If O win method will return 1, if O win method will return 2.            
+
+                    j. check(Tictactoe3D4by4Human.CellState[][][] map):
+                        This method will take Tictactoe3D4by4Human.CellState[][][] map as variable and use all check methods in one place, then returns if X wins, O wins or nobody wins.
+
+    

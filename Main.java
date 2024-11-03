@@ -23,8 +23,8 @@ public class Main {
             System.out.println("");
             System.out.println("");
             System.out.println("-------| This project created by Yusuf Aslan from zero to end! |-------");
-            System.out.println("");
-            System.out.println("");
+            System.out.println("           -------|   Student number:  230201001   |-------");
+            System.out.println("           -------|   Major: Computer Engineering  |-------");
             System.out.println("");
             System.out.println("");
             System.out.println("");
