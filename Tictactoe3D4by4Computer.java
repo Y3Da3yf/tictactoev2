@@ -271,7 +271,7 @@ public class Tictactoe3D4by4Computer {
         return returner;
     }
 
-    private boolean putRandom(Scanner scanner){
+    private boolean putRandom(Scanner scanner, boolean XorO){
         boolean returner = false;
 
         int size = 4 * 4 * 4;
@@ -285,12 +285,28 @@ public class Tictactoe3D4by4Computer {
 
             //position of random element will be calculate as       (z-1)*16 + (y-1)*4 + (x-1)
             //so we can devide randomInt to 16 and we will devide remained part to 4 then we can find x,y,z axis
+            System.out.println(randomInt);
             
             int remain16 = randomInt%16;
             int z  = (randomInt - remain16)/16;
-            int remain4 = remain16 % 4;
+            int remain4 = remain16 % 4 ;
             int y = (remain16 - remain4)/4;
             int x = remain4;
+
+            System.out.println(randomInt);
+
+            if(map[z][y][x] == CellState.EMPTY){
+                if(!XorO){           //if user is X computer will put O
+                    map[z][y][x] = CellState.O;
+                    break;
+
+                }
+                else{
+                    map[z][y][x] = CellState.X;
+                    break;
+                }
+            }
+
 
         }
 
@@ -311,8 +327,8 @@ public class Tictactoe3D4by4Computer {
         if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
 
 
-        if(XorO){
-            putX(scanner);
+        if(!XorO){
+            putRandom(scanner, !XorO);
             if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
             if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
         }
@@ -326,18 +342,33 @@ public class Tictactoe3D4by4Computer {
 
 
 
+            if(!XorO){                                                                                       //IF PLAYER CHOOSE X
+                putO(scanner);                  //THIS LINE WILL PUT o 
+                if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
+                if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
 
-            putO(scanner);
-            if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
-            if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
-            if(checker.check(map) != 0){break;}
+                putRandom(scanner, !XorO);         //THIS LINE WILL PUT X OR O TO RANDOM PLACE IN ARRAY
+
+                if(!HorizontalOrVertical){showMapHorizontal();}                                                    
+                if(HorizontalOrVertical){showMapVertical();}   
 
 
-            putX(scanner);
-            if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
-            if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
-            if(checker.check(map) != 0){break;}
-            
+                if(checker.check(map) != 0){break;}
+            }
+
+            if(XorO){                                                                                       //IF PLAYER CHOOSE X
+                putX(scanner);                    //THIS LINE WILL PUT X 
+                if(!HorizontalOrVertical){showMapHorizontal();}                                                    //SET HORIZONTAL OR VERTICAL
+                if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
+
+                
+                putRandom(scanner, !XorO);          //THIS LINE WILL PUT X OR O TO RANDOM PLACE IN ARRAY
+
+                if(!HorizontalOrVertical){showMapHorizontal();}                                                        //SET HORIZONTAL OR VERTICAL                                                   
+                if(HorizontalOrVertical){showMapVertical();}                                                       //SET HORIZONTAL OR VERTICAL
+
+                if(checker.check(map) != 0){break;}
+            }
 
         }
 

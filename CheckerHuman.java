@@ -8,19 +8,19 @@ public class CheckerHuman {
 
     }
 
-    CheckerHuman(CellState[][] map){
+    CheckerHuman(CellState[][] map){        //CONSTRUCTER FOR SETTING MAP
         this.map = map;
     }
 
-    CheckerHuman(int x, int y){
+    CheckerHuman(int x, int y){             //CONSTRUCTER FOR SETTING X AND Y COORDINATES
         this.Xaxis = x;
         this.Yaxis = y;
 
     }
 
-    public int checkRow(int x, int y){
-        int returner = 0;
-            if(map[y][0] != CellState.EMPTY && map[y][1] != CellState.EMPTY && map[y][2] != CellState.EMPTY){
+    public int checkRow(int x, int y){                              //this method will check row for win/no win stiations
+        int returner = 0;                                                                                       //RETURNER WILL CHOOSE IS GAME WIN FOR X or WIN FOR O or still no win
+            if(map[y][0] != CellState.EMPTY && map[y][1] != CellState.EMPTY && map[y][2] != CellState.EMPTY){               
                 if(map[y][0].equals(map[y][1]) && map[y][1].equals(map[y][2])){
                     if(CellState.X == map[y][x]){returner = 1;}
                     else if(CellState.O == map[y][x]){returner = 2;}

@@ -119,7 +119,7 @@ public class Main {
                 horizontalcheck = scanner2.nextLine();
 
                 if("1".equals(horizontalcheck)){HorizontalOrVertical = false;}
-                else if("2".equals(horizontalcheck)){HorizontalOrVertical = true;}
+                else{HorizontalOrVertical = true;}
             }
             if(sellect == 4){break;}
         }
