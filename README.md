@@ -6,6 +6,8 @@ Hello Professor,
 
 In this project, I developed both a classic TicTacToe game and a 4x4x4 3D TicTacToe game. I hope you find my work enjoyable.
 
+Also after some point I started to upload my code to GitHub, here is my link: https://github.com/Y3Da3yf/tictactoev2.git
+
 Best regards,
 Yusuf Aslan 230201001 Computer Engineering
 
