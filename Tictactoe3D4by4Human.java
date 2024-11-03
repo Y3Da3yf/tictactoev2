@@ -121,7 +121,7 @@ public class Tictactoe3D4by4Human {
                 for(int z = 0; z < 4; z++){
                     
                     if(z == 0 && x == 0){
-                        System.out.println("           Z=" + y);
+                        System.out.println("           Z=" + (y+1));
                         System.out.println("   X= 1   2   3   4");
                         System.out.println("    -----------------  ");
                     }
